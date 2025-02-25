@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "@/assets/styles/globals.css"
+import "@/assets/styles/globals.css";
 import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constants";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const roboto = Roboto({
-  weight: ['300', '700'],
+  weight: ["300", "700"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Shoes Store',
-    default: APP_NAME
+    template: "%s | Shoes Store",
+    default: APP_NAME,
   },
   description: APP_DESCRIPTION,
-  metadataBase: new URL(SERVER_URL)
+  metadataBase: new URL(SERVER_URL),
 };
 
 export default function RootLayout({
@@ -24,10 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${roboto.className}`}
-      >
-        {children}
+      <body className={`${roboto.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
