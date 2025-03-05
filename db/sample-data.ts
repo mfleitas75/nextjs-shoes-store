@@ -56,7 +56,7 @@ const sampleData = {
             slug: 'skechers-party-wear-lady-sandal',
             category: "Ladies Shoes",
             description: 'perfect golden sandals lady party wear ',
-            images: ['/images/114413_TPE.jpg' ],
+            images: ['/images/114413_TPA.png' ],
             price: 99.95,
             brand: 'Skechers',
             rating: 4.9,
